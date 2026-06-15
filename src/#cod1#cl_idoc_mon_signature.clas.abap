@@ -32,7 +32,7 @@ CLASS /cod1/cl_idoc_mon_signature IMPLEMENTATION.
 
   METHOD compute.
     DATA lv_hash TYPE hash160_hex.
-    DATA(lv_canonical) = |{ iv_direct }|{ iv_mestyp }|{ iv_status }|{ iv_stamid }|{ iv_stamno }|.
+    DATA(lv_canonical) = |{ iv_direct }\|{ iv_mestyp }\|{ iv_status }\|{ iv_stamid }\|{ iv_stamno }|.
 
     CALL FUNCTION 'CALCULATE_HASH_FOR_CHAR'
       EXPORTING  data           = lv_canonical
