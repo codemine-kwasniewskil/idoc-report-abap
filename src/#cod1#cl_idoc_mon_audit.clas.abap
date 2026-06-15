@@ -9,13 +9,16 @@ CLASS /cod1/cl_idoc_mon_audit DEFINITION
   PUBLIC SECTION.
     "! Append one audit record. Commits in its own LUW so the trail survives
     "! even if the surrounding action is later rolled back.
+    "! iv_action is BY VALUE: callers pass the action TARGET (CHAR60 config field)
+    "! into this CHAR30 audit field; by-value allows the implicit conversion
+    "! (command keys like REPROCESS/SET_STATUS are short).
     METHODS log
-      IMPORTING iv_docnum    TYPE edidc-docnum OPTIONAL
-                iv_action_id TYPE /cod1/idoc_aud-action_id OPTIONAL
-                iv_action    TYPE /cod1/idoc_aud-action
-                iv_request   TYPE string OPTIONAL
-                iv_result    TYPE string OPTIONAL
-                iv_success   TYPE abap_bool DEFAULT abap_true.
+      IMPORTING iv_docnum           TYPE edidc-docnum OPTIONAL
+                iv_action_id        TYPE /cod1/idoc_aud-action_id OPTIONAL
+                VALUE(iv_action)    TYPE /cod1/idoc_aud-action
+                iv_request          TYPE string OPTIONAL
+                iv_result           TYPE string OPTIONAL
+                iv_success          TYPE abap_bool DEFAULT abap_true.
 ENDCLASS.
 
 
