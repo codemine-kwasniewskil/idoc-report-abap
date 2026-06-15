@@ -59,7 +59,7 @@ CLASS /cod1/cl_idoc_mon_facade DEFINITION
 
     " ---- approvals ----
     METHODS list_approvals
-      RETURNING VALUE(rt_aprv) TYPE STANDARD TABLE OF /cod1/idoc_aprv WITH DEFAULT KEY.
+      RETURNING VALUE(rt_aprv) TYPE /cod1/if_idoc_mon_types=>tt_approval.
     METHODS approve IMPORTING iv_aprv_id TYPE /cod1/idoc_aprv-aprv_id.
     METHODS reject  IMPORTING iv_aprv_id TYPE /cod1/idoc_aprv-aprv_id.
 

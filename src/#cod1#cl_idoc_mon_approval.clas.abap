@@ -28,7 +28,7 @@ CLASS /cod1/cl_idoc_mon_approval DEFINITION
 
     "! Open (REQUESTED) requests, for the dashboard "Approvals" view.
     METHODS list_open
-      RETURNING VALUE(rt_aprv) TYPE STANDARD TABLE OF /cod1/idoc_aprv WITH DEFAULT KEY.
+      RETURNING VALUE(rt_aprv) TYPE /cod1/if_idoc_mon_types=>tt_approval.
 
   PRIVATE SECTION.
     DATA mo_audit TYPE REF TO /cod1/cl_idoc_mon_audit.

@@ -60,6 +60,10 @@ INTERFACE /cod1/if_idoc_mon_types
          END OF ts_action.
   TYPES tt_action TYPE STANDARD TABLE OF ts_action WITH DEFAULT KEY.
 
+  "! Open/processed approval requests (named type - RETURNING cannot use an
+  "! inline STANDARD TABLE OF ...).
+  TYPES tt_approval TYPE STANDARD TABLE OF /cod1/idoc_aprv WITH DEFAULT KEY.
+
   "! Filter for the signature list / refresh.
   TYPES: BEGIN OF ts_filter,
            direct    TYPE edidc-direct,
