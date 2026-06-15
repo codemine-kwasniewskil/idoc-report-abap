@@ -89,7 +89,7 @@ CLASS /cod1/cl_idoc_mon_repository IMPLEMENTATION.
     SELECT DISTINCT sig_key FROM /cod1/idoc_acfg INTO TABLE @DATA(lt_cfg).
     SORT lt_cfg BY sig_key.
     LOOP AT rt_sig ASSIGNING FIELD-SYMBOL(<s>).
-      READ TABLE lt_cfg TRANSPORTING NO FIELDS WITH KEY table_line = <s>-sig_key BINARY SEARCH.
+      READ TABLE lt_cfg TRANSPORTING NO FIELDS WITH KEY sig_key = <s>-sig_key BINARY SEARCH.
       <s>-has_actions = xsdbool( sy-subrc = 0 ).
     ENDLOOP.
   ENDMETHOD.

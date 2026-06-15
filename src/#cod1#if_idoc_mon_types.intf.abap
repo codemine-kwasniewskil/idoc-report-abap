@@ -11,8 +11,8 @@ INTERFACE /cod1/if_idoc_mon_types
            direct       TYPE edidc-direct,
            mestyp       TYPE edidc-mestyp,
            status       TYPE edidc-status,
-           stamid       TYPE edids-stamid,
-           stamno       TYPE edids-stamno,
+           stamid       TYPE /cod1/idoc_sig-stamid,   "match the table column types so
+           stamno       TYPE /cod1/idoc_sig-stamno,   "SELECT INTO /cod1/idoc_sig is exact
            text         TYPE /cod1/idoc_sig-text,
            instance_cnt TYPE i,
            first_seen   TYPE edidc-credat,
