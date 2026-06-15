@@ -49,7 +49,7 @@ INTERFACE /cod1/if_idoc_mon_types
   TYPES: BEGIN OF ts_action,
            action_id    TYPE /cod1/idoc_acfg-action_id,
            sig_key      TYPE /cod1/idoc_acfg-sig_key,
-           label        TYPE /cod1/idoc_acfg-label,
+           label        TYPE /cod1/idoc_acfg-label_txt,
            seqnr        TYPE /cod1/idoc_acfg-seqnr,
            target       TYPE /cod1/idoc_acfg-target,   "command key: REPROCESS/SET_STATUS/CLOSE/TRIGGER
            params       TYPE /cod1/idoc_acfg-params,   "e.g. status=68;message=closed
