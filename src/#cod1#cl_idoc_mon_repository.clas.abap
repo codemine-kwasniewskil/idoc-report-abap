@@ -76,14 +76,24 @@ CLASS /cod1/cl_idoc_mon_repository IMPLEMENTATION.
 
 
   METHOD /cod1/if_idoc_mon_repository~read_signatures.
+    " /cod1/idoc_sig holds only the aggregate (a handful of rows), so read all
+    " and apply the optional filter in memory - Open SQL does not allow a host
+    " variable on the left of a WHERE comparison (the "@is_filter-x = ''" form).
     SELECT sig_key, direct, mestyp, status, stamid, stamno, text,
            instance_cnt, first_seen, last_seen, config_state
       FROM /cod1/idoc_sig
-      WHERE ( @is_filter-direct = '' OR direct = @is_filter-direct )
-        AND ( @is_filter-status = '' OR status = @is_filter-status )
-        AND ( @is_filter-mestyp = '' OR mestyp = @is_filter-mestyp )
       ORDER BY instance_cnt DESCENDING
       INTO CORRESPONDING FIELDS OF TABLE @rt_sig.
+
+    IF is_filter-direct IS NOT INITIAL.
+      DELETE rt_sig WHERE direct <> is_filter-direct.
+    ENDIF.
+    IF is_filter-status IS NOT INITIAL.
+      DELETE rt_sig WHERE status <> is_filter-status.
+    ENDIF.
+    IF is_filter-mestyp IS NOT INITIAL.
+      DELETE rt_sig WHERE mestyp <> is_filter-mestyp.
+    ENDIF.
 
     " flag which signatures already have a configured action
     SELECT DISTINCT sig_key FROM /cod1/idoc_acfg INTO TABLE @DATA(lt_cfg).
