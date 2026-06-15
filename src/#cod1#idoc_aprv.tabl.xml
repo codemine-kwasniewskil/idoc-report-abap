@@ -9,6 +9,7 @@
     <DDTEXT>IDoc monitor - approval requests</DDTEXT>
     <CONTFLAG>A</CONTFLAG>
     <MASTERLANG>E</MASTERLANG>
+    <EXCLASS>1</EXCLASS>
    </DD02V>
    <DD09L>
     <TABNAME>/COD1/IDOC_APRV</TABNAME>

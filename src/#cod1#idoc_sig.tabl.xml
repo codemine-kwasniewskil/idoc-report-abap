@@ -9,6 +9,7 @@
     <DDTEXT>IDoc monitor - signature aggregate</DDTEXT>
     <CONTFLAG>A</CONTFLAG>
     <MASTERLANG>E</MASTERLANG>
+    <EXCLASS>1</EXCLASS>
    </DD02V>
    <DD09L>
     <TABNAME>/COD1/IDOC_SIG</TABNAME>

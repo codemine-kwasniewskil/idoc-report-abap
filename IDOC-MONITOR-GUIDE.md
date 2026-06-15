@@ -43,7 +43,7 @@ set, joined to the matching EDIDS status record), aggregates by
 ### 2. Configure actions (SM30 on `/COD1/IDOC_ACFG`)
 Map a signature to one or more actions. Get the `SIG_KEY` from `/COD1/IDOC_SIG` (SE16). Example rows:
 
-| ACTION_ID | SIG_KEY | LABEL | SEQNR | TYPE | TARGET | PARAMS | BULKABLE | REQ_APPROVAL | RATE_PER_MIN |
+| ACTION_ID | SIG_KEY | LABEL_TXT | SEQNR | TYPE | TARGET | PARAMS | BULKABLE | REQ_APPROVAL | RATE_PER_MIN |
 |---|---|---|---|---|---|---|---|---|---|
 | `DELINS_CLOSE` | `<sig>` | Close (set 68) | 10 | `erp_action` | `SET_STATUS` | `status=68;message=Closed by monitor` | `X` | ` ` | 120 |
 | `DELINS_REPROC` | `<sig>` | Reprocess | 20 | `erp_action` | `REPROCESS` | | `X` | `X` | 60 |

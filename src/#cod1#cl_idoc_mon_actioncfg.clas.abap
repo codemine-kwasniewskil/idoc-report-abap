@@ -35,7 +35,7 @@ ENDCLASS.
 CLASS /cod1/cl_idoc_mon_actioncfg IMPLEMENTATION.
 
   METHOD read_for_signature.
-    SELECT action_id, sig_key, label, seqnr, target, params,
+    SELECT action_id, sig_key, label_txt AS label, seqnr, target, params,
            bulkable, req_approval, rate_per_min, concurrency
       FROM /cod1/idoc_acfg
       WHERE sig_key = @iv_sig_key
@@ -44,7 +44,7 @@ CLASS /cod1/cl_idoc_mon_actioncfg IMPLEMENTATION.
   ENDMETHOD.
 
   METHOD read_action.
-    SELECT SINGLE action_id, sig_key, label, seqnr, target, params,
+    SELECT SINGLE action_id, sig_key, label_txt AS label, seqnr, target, params,
            bulkable, req_approval, rate_per_min, concurrency
       FROM /cod1/idoc_acfg
       WHERE action_id = @iv_action_id

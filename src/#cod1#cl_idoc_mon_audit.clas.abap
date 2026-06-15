@@ -37,7 +37,7 @@ CLASS /cod1/cl_idoc_mon_audit IMPLEMENTATION.
     ls_aud-action_id  = iv_action_id.
     ls_aud-action     = iv_action.
     ls_aud-request    = iv_request.
-    ls_aud-result     = iv_result.
+    ls_aud-res_text   = iv_result.
     ls_aud-success    = iv_success.
     ls_aud-created_by = sy-uname.
 
