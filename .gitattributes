@@ -1,0 +1,6 @@
+# abapGit repo — keep LF in the repository regardless of the contributor's OS,
+# so the SAP-side import reads consistent line endings.
+* text=auto eol=lf
+*.abap text eol=lf
+*.xml  text eol=lf
+*.md   text eol=lf
